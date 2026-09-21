@@ -1,10 +1,13 @@
-# [Project name]
+# CPGE Score Maroc
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Calculateur web responsive du score de sélection CPGE marocain, avec formule officielle, coefficients par filière et détail pédagogique du résultat.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/cpge-score-maroc run dev` — run the CPGE Score Maroc web app
+- `pnpm --filter @workspace/cpge-score-maroc run test` — run calculation unit tests
+- `pnpm --filter @workspace/cpge-score-maroc run typecheck` — typecheck the web app
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -22,15 +25,21 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/cpge-score-maroc/src/data/calculator.ts` — source of truth for filières, baccalauréats admissibles, coefficients and calculation functions
+- `artifacts/cpge-score-maroc/src/pages/Calculator.tsx` — guided calculator and result breakdown
+- `artifacts/cpge-score-maroc/src/pages/Home.tsx` — landing page
+- `artifacts/cpge-score-maroc/src/pages/HowItWorks.tsx` — formula and coefficient reference
+- `artifacts/cpge-score-maroc/src/data/calculator.test.ts` — unit tests for N1, N2, N3 and final score
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The calculator is intentionally browser-only; no account, payment, database or API is needed.
+- Intermediate values keep full precision and are formatted only for display.
+- Changing the filière clears the selected baccalauréat and qualifying subject notes to prevent stale values.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Users can calculate their MP, PSI, TSI, ECS or ECT score through a guided flow, review admissible baccalaureates and coefficients, validate every note range, and inspect the substituted official formula.
 
 ## User preferences
 
