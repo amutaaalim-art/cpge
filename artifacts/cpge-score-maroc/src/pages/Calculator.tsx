@@ -1,0 +1,84 @@
+import { ArrowLeft, ArrowRight, Check, CheckCircle2, RotateCcw, ShieldCheck } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import { FILIERES, BAC_OPTIONS, calculateScore, emptyInputs, formatNumber, type FiliereCode, type ScoreInputs, type ScoreResult } from '@/data/calculator';
+
+const steps = ['Profil', 'Notes du bac', 'Matières', 'Conseil', 'Résultat'];
+
+function FieldLabel({ children, hint }: { children: React.ReactNode; hint?: string }) {
+  return <label className="mb-2 block text-sm font-bold">{children}{hint && <span className="ml-2 font-normal text-[hsl(var(--muted-foreground))]">{hint}</span>}</label>;
+}
+
+function NumberInput({ value, onChange, max, label, testId }: { value: number | null; onChange: (value: number | null) => void; max: number; label: string; testId: string }) {
+  return <input aria-label={label} data-testid={testId} type="number" inputMode="decimal" min="0" max={max} step="0.01" value={value ?? ''} onChange={(event) => onChange(event.target.value === '' ? null : Number(event.target.value))} className="w-full rounded-xl border border-[hsl(var(--input))] bg-[hsl(var(--card))] px-4 py-3 font-mono text-sm outline-none transition-colors placeholder:text-[hsl(var(--muted-foreground))] focus:border-[hsl(var(--primary))] focus:ring-4 focus:ring-[hsl(var(--primary)/.1)]" placeholder="0,00" />
+}
+
+export function CalculatorPage() {
+  const [step, setStep] = useState(0);
+  const [inputs, setInputs] = useState<ScoreInputs>(emptyInputs());
+  const [errors, setErrors] = useState<string[]>([]);
+  const [result, setResult] = useState<ScoreResult | null>(null);
+  const subjects = FILIERES[inputs.filiere].subjects;
+  const canGoBack = step > 0 && step < 4;
+
+  const update = <K extends keyof ScoreInputs>(key: K, value: ScoreInputs[K]) => setInputs((current) => ({ ...current, [key]: value }));
+
+  const validateStep = () => {
+    const nextErrors: string[] = [];
+    if (step === 0) {
+      if (!inputs.bac) nextErrors.push('Sélectionnez votre baccalauréat.');
+    }
+    if (step === 1) {
+      if (inputs.m1 === null || inputs.m1 < 0 || inputs.m1 > 20) nextErrors.push('La note M1 doit être comprise entre 0 et 20.');
+      if (inputs.m2 === null || inputs.m2 < 0 || inputs.m2 > 20) nextErrors.push('La note M2 doit être comprise entre 0 et 20.');
+    }
+    if (step === 2) {
+      if (subjects.some((subject) => inputs.subjects[subject.name] === null || inputs.subjects[subject.name] === undefined || Number(inputs.subjects[subject.name]) < 0 || Number(inputs.subjects[subject.name]) > 20)) nextErrors.push('Renseignez chaque note entre 0 et 20.');
+    }
+    if (step === 3 && (inputs.n4 === null || inputs.n4 < 0 || inputs.n4 > 25)) nextErrors.push('La note du conseil doit être comprise entre 0 et 25.');
+    setErrors(nextErrors);
+    return nextErrors.length === 0;
+  };
+
+  const next = () => {
+    if (!validateStep()) return;
+    if (step === 3) {
+      setResult(calculateScore(inputs));
+      setStep(4);
+    } else setStep((value) => value + 1);
+  };
+  const reset = () => { setInputs(emptyInputs()); setErrors([]); setResult(null); setStep(0); };
+  const resultData = result ?? calculateScore(inputs);
+  const progressWidth = `${Math.max(7, (step / 4) * 100)}%`;
+
+  return (
+    <div className="mx-auto max-w-6xl px-5 py-10 lg:px-8 lg:py-16">
+      <div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+        <div><div className="eyebrow mb-3">Calculateur guidé</div><h1 className="font-display text-4xl font-extrabold tracking-[-.055em] sm:text-5xl">Construisons votre score.</h1><p className="mt-3 max-w-lg text-[hsl(var(--muted-foreground))]">Prenez votre temps. Les décimales sont conservées jusqu’au résultat final.</p></div>
+        <button type="button" onClick={reset} data-testid="button-reset-calculator" className="inline-flex items-center gap-2 self-start rounded-full border border-[hsl(var(--border))] px-4 py-2 text-sm font-bold text-[hsl(var(--muted-foreground))] hover:bg-[hsl(var(--card))] sm:self-auto"><RotateCcw size={15} /> Recommencer</button>
+      </div>
+      <div className="mb-8">
+        <div className="mb-3 flex items-center justify-between text-xs font-bold text-[hsl(var(--muted-foreground))]"><span>Étape {Math.min(step + 1, 5)} sur 5</span><span>{steps[step]}</span></div>
+        <div className="h-1.5 overflow-hidden rounded-full bg-[hsl(var(--secondary))]"><div className="h-full rounded-full bg-[hsl(var(--accent))] transition-all duration-500" style={{ width: progressWidth }} /></div>
+        <div className="mt-4 hidden grid-cols-5 gap-2 sm:grid">{steps.map((item, index) => <div key={item} className={`text-center text-[11px] font-bold ${index <= step ? 'text-[hsl(var(--primary))]' : 'text-[hsl(var(--muted-foreground))]'}`}><span className={`mx-auto mb-1 grid h-6 w-6 place-items-center rounded-full text-[10px] ${index < step ? 'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))]' : index === step ? 'border-2 border-[hsl(var(--primary))] text-[hsl(var(--primary))]' : 'bg-[hsl(var(--secondary))]'}`}>{index < step ? <Check size={13} /> : index + 1}</span>{item}</div>)}</div>
+      </div>
+
+      <div className="grid items-start gap-6 lg:grid-cols-[1fr_290px]">
+        <section className="min-h-[430px] rounded-[24px] border border-[hsl(var(--border))] bg-[hsl(var(--card))] p-5 shadow-[0_14px_35px_hsl(var(--foreground)/.045)] sm:p-8">
+          {step === 0 && <div className="fade-up"><div className="mb-7"><h2 className="font-display text-2xl font-extrabold">Commençons par votre profil</h2><p className="mt-2 text-sm leading-6 text-[hsl(var(--muted-foreground))]">Ces informations déterminent les matières et coefficients affichés ensuite.</p></div><FieldLabel>Votre filière</FieldLabel><div className="grid gap-3 sm:grid-cols-2">{(Object.keys(FILIERES) as FiliereCode[]).map((code) => <button type="button" key={code} onClick={() => update('filiere', code)} data-testid={`button-filiere-${code}`} className={`rounded-2xl border p-4 text-left transition-all ${inputs.filiere === code ? 'border-[hsl(var(--primary))] bg-[hsl(var(--secondary)/.68)] ring-2 ring-[hsl(var(--primary)/.15)]' : 'border-[hsl(var(--border))] hover:border-[hsl(var(--primary)/.5)]'}`}><div className="flex items-center justify-between"><span className="font-mono text-lg font-bold text-[hsl(var(--primary))]">{code}</span>{inputs.filiere === code && <CheckCircle2 size={18} className="text-[hsl(var(--primary))]" />}</div><div className="mt-2 text-sm font-bold">{FILIERES[code].label}</div><div className="mt-1 text-xs leading-5 text-[hsl(var(--muted-foreground))]">{FILIERES[code].description}</div></button>)}</div><div className="mt-7"><FieldLabel hint="selon votre relevé">Type de baccalauréat</FieldLabel><select aria-label="Type de baccalauréat" data-testid="select-baccalaureat" value={inputs.bac} onChange={(event) => update('bac', event.target.value)} className="w-full rounded-xl border border-[hsl(var(--input))] bg-[hsl(var(--card))] px-4 py-3 text-sm outline-none focus:border-[hsl(var(--primary))]"><option value="">Sélectionnez votre baccalauréat</option>{BAC_OPTIONS.map((bac) => <option value={bac} key={bac}>{bac}</option>)}</select></div></div>}
+          {step === 1 && <div className="fade-up"><div className="mb-7"><h2 className="font-display text-2xl font-extrabold">Votre parcours et vos notes</h2><p className="mt-2 text-sm leading-6 text-[hsl(var(--muted-foreground))]">Une seule situation de redoublement peut être sélectionnée.</p></div><FieldLabel>Redoublement</FieldLabel><div className="grid gap-2 sm:grid-cols-3">{[['none', 'Aucun', 'N1 = 10'], ['premiere', '1ère année du bac', 'N1 = 5'], ['terminale', 'Terminale', 'N1 = 0']].map(([value, title, detail]) => <button type="button" key={value} onClick={() => update('repetition', value as ScoreInputs['repetition'])} data-testid={`button-repetition-${value}`} className={`rounded-xl border px-4 py-4 text-left ${inputs.repetition === value ? 'border-[hsl(var(--primary))] bg-[hsl(var(--secondary)/.68)]' : 'border-[hsl(var(--border))]'}`}><div className="text-sm font-bold">{title}</div><div className="mt-1 font-mono text-xs text-[hsl(var(--primary))]">{detail}</div></button>)}</div><div className="mt-9 grid gap-4 sm:grid-cols-2"><div><FieldLabel hint="/ 20">M1 · 1ère année</FieldLabel><NumberInput value={inputs.m1} onChange={(value) => update('m1', value)} max={20} label="Note M1" testId="input-m1" /></div><div><FieldLabel hint="/ 20">M2 · 2ème année</FieldLabel><NumberInput value={inputs.m2} onChange={(value) => update('m2', value)} max={20} label="Note M2" testId="input-m2" /></div></div><div className="mt-8 rounded-2xl bg-[hsl(var(--secondary)/.55)] p-4 text-sm leading-6 text-[hsl(var(--muted-foreground))]"><span className="font-mono font-bold text-[hsl(var(--primary))]">N2</span> = (M1 + 2 × M2) / 3 · La deuxième année compte double.</div></div>}
+          {step === 2 && <div className="fade-up"><div className="mb-7"><h2 className="font-display text-2xl font-extrabold">Les matières qualifiantes</h2><p className="mt-2 text-sm leading-6 text-[hsl(var(--muted-foreground))]">Entrez les notes qui correspondent à votre filière. Chaque coefficient est affiché pour garder le calcul lisible.</p></div><div className="space-y-3">{subjects.map((subject) => <div key={subject.name} className="flex flex-col gap-2 rounded-xl border border-[hsl(var(--border)/.8)] p-3 sm:flex-row sm:items-center sm:justify-between sm:px-4"><div className="flex items-center gap-3"><span className="grid h-7 w-7 place-items-center rounded-lg bg-[hsl(var(--secondary))] font-mono text-[10px] font-bold text-[hsl(var(--primary))]">{subject.coefficient}</span><span className="max-w-[340px] text-sm font-semibold">{subject.name}</span></div><div className="w-full sm:w-32"><NumberInput value={inputs.subjects[subject.name] ?? null} onChange={(value) => setInputs((current) => ({ ...current, subjects: { ...current.subjects, [subject.name]: value } }))} max={20} label={`Note ${subject.name}`} testId={`input-subject-${subjects.indexOf(subject)}`} /></div></div>)}</div></div>}
+          {step === 3 && <div className="fade-up"><div className="mb-7"><h2 className="font-display text-2xl font-extrabold">La note du conseil de classe</h2><p className="mt-2 text-sm leading-6 text-[hsl(var(--muted-foreground))]">Dernier élément : la note attribuée par le conseil de classe, sur 25.</p></div><div className="mx-auto max-w-sm"><FieldLabel hint="/ 25">Conseil de classe · N4</FieldLabel><NumberInput value={inputs.n4} onChange={(value) => update('n4', value)} max={25} label="Note du conseil de classe" testId="input-n4" /><div className="mt-5 flex justify-between text-xs text-[hsl(var(--muted-foreground))]"><span>0</span><span>12,5</span><span>25</span></div><div className="mt-8 rounded-2xl border border-[hsl(var(--primary)/.2)] bg-[hsl(var(--secondary)/.45)] p-5"><ShieldCheck className="text-[hsl(var(--primary))]" size={20} /><p className="mt-3 text-sm leading-6 text-[hsl(var(--muted-foreground))]">Votre calcul reste dans votre navigateur. Rien n’est envoyé ni enregistré.</p></div></div></div>}
+          {step === 4 && result && <ResultPanel inputs={inputs} result={resultData} onReset={reset} />}
+          {errors.length > 0 && <div role="alert" data-testid="status-validation-error" className="mt-7 rounded-xl border border-[hsl(var(--destructive)/.25)] bg-[hsl(var(--destructive)/.07)] px-4 py-3 text-sm font-semibold text-[hsl(var(--destructive))]">{errors.map((error) => <div key={error}>{error}</div>)}</div>}
+          {step < 4 && <div className="mt-9 flex items-center justify-between border-t border-[hsl(var(--border))] pt-5"><button type="button" disabled={!canGoBack} onClick={() => { setErrors([]); setStep((value) => value - 1); }} data-testid="button-previous-step" className="inline-flex items-center gap-2 rounded-full px-2 py-2 text-sm font-bold text-[hsl(var(--muted-foreground))] disabled:invisible"><ArrowLeft size={16} /> Retour</button><button type="button" onClick={next} data-testid="button-next-step" className="inline-flex items-center gap-2 rounded-full bg-[hsl(var(--primary))] px-5 py-3 text-sm font-bold text-[hsl(var(--primary-foreground))] shadow-[0_8px_16px_hsl(var(--primary)/.16)] transition-transform hover:-translate-y-0.5">Continuer <ArrowRight size={16} /></button></div>}
+        </section>
+        <aside className="rounded-[22px] border border-[hsl(var(--border))] bg-[hsl(var(--card)/.64)] p-5 lg:sticky lg:top-6"><div className="eyebrow mb-4">Votre aperçu</div><div className="space-y-1 text-sm"><div className="flex justify-between py-2"><span className="text-[hsl(var(--muted-foreground))]">Filière</span><span className="font-bold">{inputs.filiere}</span></div><div className="flex justify-between py-2"><span className="text-[hsl(var(--muted-foreground))]">Bac</span><span className="max-w-[145px] text-right text-xs font-semibold">{inputs.bac || 'À compléter'}</span></div><div className="flex justify-between border-t border-[hsl(var(--border))] py-2"><span className="text-[hsl(var(--muted-foreground))]">Progression</span><span className="font-mono text-xs font-bold text-[hsl(var(--primary))]">{step < 4 ? `${step}/4` : 'Terminé'}</span></div></div>{step === 4 && result && <div className="mt-5 rounded-2xl bg-[hsl(var(--primary))] p-4 text-[hsl(var(--primary-foreground))]"><div className="text-xs opacity-75">Votre score final</div><div className="mt-2 font-mono text-4xl font-bold tracking-[-.06em]">{formatNumber(result.total)}</div></div>}<div className="mt-6 text-xs leading-5 text-[hsl(var(--muted-foreground))]">Les données saisies restent uniquement dans cette page. Vous pouvez recommencer à tout moment.</div></aside>
+      </div>
+    </div>
+  );
+}
+
+function ResultPanel({ inputs, result, onReset }: { inputs: ScoreInputs; result: ScoreResult; onReset: () => void }) {
+  const formula = `N = ${formatNumber(result.n1)} + (${formatNumber(result.n2)} − 10) + (170 × ${formatNumber(result.n3)} / 20) + (10 × ${formatNumber(result.n4)} / 25)`;
+  return <div className="fade-up"><div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"><div><div className="eyebrow mb-3">Calcul terminé</div><h2 className="font-display text-2xl font-extrabold">Voici votre score.</h2><p className="mt-2 text-sm text-[hsl(var(--muted-foreground))]">{inputs.filiere} · {inputs.bac}</p></div><div className="rounded-2xl bg-[hsl(var(--primary))] px-5 py-4 text-[hsl(var(--primary-foreground))] sm:min-w-[160px]"><div className="text-xs opacity-75">Score final</div><div data-testid="text-final-score" className="mt-1 font-mono text-4xl font-bold">{formatNumber(result.total)}</div></div></div><div className="mt-8 grid gap-2 sm:grid-cols-4">{([['N1', result.n1], ['N2', result.n2], ['N3', result.n3], ['N4', result.n4]] as const).map(([label, value]) => <div key={label} className="rounded-xl bg-[hsl(var(--secondary)/.65)] p-3"><div className="font-mono text-xs font-bold text-[hsl(var(--primary))]">{label}</div><div data-testid={`text-result-${label.toLowerCase()}`} className="mt-2 font-mono text-lg font-bold">{formatNumber(Number(value))}</div></div>)}</div><div className="mt-5 rounded-2xl border border-[hsl(var(--border))] p-5"><div className="flex items-center justify-between text-sm"><span className="font-bold">Somme pondérée des matières</span><span className="font-mono font-bold" data-testid="text-weighted-sum">{formatNumber(result.weightedSum)}</span></div><div className="mt-2 flex items-center justify-between text-sm text-[hsl(var(--muted-foreground))]"><span>Total des coefficients</span><span className="font-mono">{formatNumber(result.totalCoefficients)}</span></div><div className="my-5 border-t border-dashed border-[hsl(var(--border))]" /><div className="font-mono text-xs leading-7 text-[hsl(var(--muted-foreground))]" data-testid="text-substituted-formula">{formula}</div><div className="mt-4 rounded-xl bg-[hsl(var(--secondary)/.6)] p-3 text-center font-mono text-sm font-bold text-[hsl(var(--primary))]">N = {formatNumber(result.total)}</div></div><div className="mt-7 flex flex-col gap-3 sm:flex-row"><button type="button" onClick={onReset} data-testid="button-new-calculation" className="inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--primary))] px-5 py-3 text-sm font-bold text-[hsl(var(--primary-foreground))]"><RotateCcw size={16} /> Nouveau calcul</button><span className="inline-flex items-center justify-center gap-2 px-3 text-xs text-[hsl(var(--muted-foreground))]"><CheckCircle2 size={15} className="text-[hsl(var(--primary))]" /> Calcul sans arrondi intermédiaire</span></div></div>;
+}

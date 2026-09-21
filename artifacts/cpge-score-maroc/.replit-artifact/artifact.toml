@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "CPGE Score Maroc"
+description = "Calculateur web responsive permettant aux candidats marocains de calculer leur score de sélection CPGE pour les filières MP, PSI, TSI, ECS et ECT, avec validation et détail pédagogique du calcul."
+version = "1.0.0"
+id = "artifacts/cpge-score-maroc"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25871
+
+[services.development]
+run = "pnpm --filter @workspace/cpge-score-maroc run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cpge-score-maroc", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/cpge-score-maroc/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25871"
+BASE_PATH = "/"
