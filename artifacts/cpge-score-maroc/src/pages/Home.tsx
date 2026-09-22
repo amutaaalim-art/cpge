@@ -20,7 +20,7 @@ export function Home() {
               Votre score,<br /><span className="text-[hsl(var(--primary))]">en clair.</span>
             </h1>
             <p className="fade-up-delay mt-7 max-w-lg text-lg leading-8 text-[hsl(var(--muted-foreground))]">
-              Transformez une formule d’admission complexe en une estimation lisible, vérifiable et vraiment utile pour la suite.
+              Un calcul transparent et vérifiable de votre score, pour éclairer votre parcours
             </p>
             <div className="fade-up-delay mt-9 flex flex-col gap-3 sm:flex-row">
               <Link href="/calculateur" data-testid="button-start-calculator" className="group inline-flex items-center justify-center gap-3 rounded-full bg-[hsl(var(--primary))] px-6 py-3.5 text-sm font-bold text-[hsl(var(--primary-foreground))] shadow-[0_12px_24px_hsl(var(--primary)/.2)] transition-transform hover:-translate-y-0.5">
