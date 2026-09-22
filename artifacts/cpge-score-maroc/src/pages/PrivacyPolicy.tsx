@@ -1,21 +1,3 @@
-import type { ReactNode } from 'react';
-
-const googlePartnerSitesUrl = 'https://policies.google.com/technologies/partner-sites?hl=fr';
-const googleAdsSettingsUrl = 'https://adssettings.google.com/?hl=fr';
-
-function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="font-semibold text-[hsl(var(--primary))] underline decoration-[hsl(var(--accent)/.7)] underline-offset-4 hover:decoration-[hsl(var(--primary))]"
-    >
-      {children}
-    </a>
-  );
-}
-
 export function PrivacyPolicy() {
   return (
     <div className="mx-auto max-w-4xl px-5 py-10 lg:px-8 lg:py-16">
@@ -62,11 +44,11 @@ export function PrivacyPolicy() {
               <ul className="list-disc space-y-2 pl-6">
                 <li>les informations saisies volontairement dans le calculateur ;</li>
                 <li>les données techniques nécessaires au fonctionnement et à la sécurité du Site ;</li>
-                <li>l’adresse IP ou des informations techniques similaires, lorsqu’elles sont traitées par notre hébergeur, nos fournisseurs techniques ou nos services publicitaires ;</li>
+                <li>l’adresse IP ou des informations techniques similaires, lorsqu’elles sont traitées par notre hébergeur ou nos fournisseurs techniques ;</li>
                 <li>des informations relatives au navigateur, à l’appareil et au système d’exploitation ;</li>
-                <li>des informations relatives à la navigation sur le Site, notamment les pages consultées et certaines interactions ;</li>
-                <li>des informations stockées dans ou accessibles depuis votre navigateur, notamment au moyen de cookies ou de technologies similaires.</li>
+                <li>des informations nécessaires au fonctionnement technique du Site, lorsqu’elles sont disponibles auprès de l’hébergeur ou des fournisseurs techniques.</li>
               </ul>
+              <p>À ce jour, le Site n’utilise aucun outil de mesure d’audience, de publicité ou de suivi comportemental.</p>
               <p>Nous ne demandons pas aux utilisateurs de fournir des informations telles que leur numéro de téléphone, leur adresse postale ou leurs informations bancaires pour utiliser le calculateur.</p>
             </div>
           </section>
@@ -88,52 +70,37 @@ export function PrivacyPolicy() {
           <section>
             <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">4. Cookies et technologies similaires</h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-[hsl(var(--muted-foreground))]">
-              <p>CPGE Score peut utiliser des cookies, du stockage local ou des technologies similaires nécessaires au fonctionnement du Site, à la sécurité, à la mesure d’audience ou à la diffusion de publicités.</p>
-              <p>Des cookies peuvent également être déposés par des fournisseurs tiers lorsque leurs services sont utilisés sur le Site.</p>
-              <p>Lorsque Google AdSense est utilisé pour diffuser des annonces, <strong className="font-bold text-[hsl(var(--foreground))]">Google et ses partenaires peuvent utiliser des cookies ou d'autres technologies afin de diffuser des annonces, mesurer leur performance et, selon les choix de l'utilisateur et les exigences applicables, personnaliser les annonces</strong>.</p>
-              <p><ExternalLink href={googlePartnerSitesUrl}>Google indique que les fournisseurs tiers, y compris Google, peuvent utiliser des cookies pour diffuser des annonces en fonction des visites antérieures d'un utilisateur sur ce site ou sur d'autres sites.</ExternalLink></p>
+              <p>À ce jour, CPGE Score ne dépose ni ne lit de cookie publicitaire et n’utilise ni <span className="font-mono text-[13px]">localStorage</span> ni <span className="font-mono text-[13px]">sessionStorage</span>.</p>
+              <p>Aucun service publicitaire ou analytique tiers n’est actuellement intégré aux pages du Site. La présente politique pourra être mise à jour si de tels services sont ajoutés ultérieurement.</p>
             </div>
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">5. Google AdSense</h2>
+            <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">5. Services publicitaires Google</h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-[hsl(var(--muted-foreground))]">
-              <p>CPGE Score peut utiliser <strong className="font-bold text-[hsl(var(--foreground))]">Google AdSense</strong>, un service de publicité fourni par Google.</p>
-              <p>Google et ses partenaires peuvent utiliser des cookies, des pixels espions, des adresses IP ou d'autres identifiants et technologies similaires dans le cadre de la diffusion et de la mesure des annonces.</p>
-              <p>Ces technologies peuvent notamment être utilisées pour :</p>
-              <ul className="list-disc space-y-2 pl-6">
-                <li>diffuser des annonces ;</li>
-                <li>mesurer les impressions et les interactions avec les annonces ;</li>
-                <li>limiter la fréquence d'affichage des annonces ;</li>
-                <li>améliorer la pertinence des annonces ;</li>
-                <li>personnaliser les annonces lorsque cela est autorisé et lorsque l'utilisateur a fourni le consentement requis.</li>
-              </ul>
-              <p>Les utilisateurs peuvent gérer certains paramètres relatifs aux annonces personnalisées dans les <ExternalLink href={googleAdsSettingsUrl}>paramètres publicitaires de Google</ExternalLink>.</p>
-              <p>Pour plus d'informations sur la manière dont Google utilise les données collectées via les sites et applications de ses partenaires, veuillez consulter :</p>
-              <p className="border-l-2 border-[hsl(var(--accent))] pl-5 font-semibold text-[hsl(var(--foreground))]"><ExternalLink href={googlePartnerSitesUrl}>« Comment Google utilise les informations provenant des sites ou applications qui utilisent ses services »</ExternalLink>.</p>
-              <p>Google exige notamment que les éditeurs informent clairement leurs utilisateurs de l'utilisation de cookies et du fait que des tiers peuvent placer et lire des cookies ou utiliser des technologies similaires dans le cadre de la diffusion d'annonces.</p>
+              <p>CPGE Score n’intègre actuellement aucun service publicitaire Google, notamment <strong className="font-bold text-[hsl(var(--foreground))]">Google AdSense</strong>.</p>
+              <p>Aucun script publicitaire, cookie publicitaire ou mécanisme de personnalisation des annonces n’est donc actuellement utilisé par le Site.</p>
+              <p>Si un service publicitaire Google ou un autre service publicitaire tiers est ajouté ultérieurement, la présente politique sera mise à jour afin de décrire son fonctionnement, les données concernées et les choix proposés aux utilisateurs.</p>
             </div>
           </section>
 
           <section>
             <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">6. Publicités personnalisées et consentement</h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-[hsl(var(--muted-foreground))]">
-              <p>Selon la localisation de l'utilisateur et les exigences légales applicables, CPGE Score peut devoir obtenir le consentement de l'utilisateur avant d'utiliser certaines informations ou certains cookies à des fins de personnalisation des annonces.</p>
-              <p>Pour les utilisateurs situés dans l'Espace économique européen (EEE), au Royaume-Uni et en Suisse, Google impose notamment des exigences spécifiques concernant le consentement à l'utilisation de cookies ou du stockage local ainsi qu'à l'utilisation de données personnelles pour la personnalisation des annonces lorsque la législation l'exige.</p>
-              <p>Lorsque cela est nécessaire, CPGE Score utilise un mécanisme de consentement approprié afin de permettre aux utilisateurs d'exprimer leurs choix concernant l'utilisation de leurs données et la personnalisation des annonces.</p>
+              <p>À ce jour, aucun système de consentement publicitaire, aucune bannière de cookies et aucun CMP ne sont utilisés, car aucun service publicitaire ou analytique n’est intégré au Site.</p>
+              <p>Si de tels services sont ajoutés ultérieurement, CPGE Score mettra à jour cette politique et mettra en place, lorsque cela est requis, un mécanisme permettant aux utilisateurs d’exprimer et de gérer leurs choix.</p>
             </div>
           </section>
 
           <section>
             <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">7. Fournisseurs et partenaires tiers</h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-[hsl(var(--muted-foreground))]">
-              <p>Certains services utilisés par CPGE Score peuvent être fournis par des entreprises tierces.</p>
+              <p>Le Site utilise certains services techniques tiers nécessaires à son fonctionnement, notamment pour l’hébergement et le chargement des polices.</p>
               <p>Ces fournisseurs peuvent traiter certaines informations techniques nécessaires à la fourniture de leurs services, conformément à leurs propres politiques de confidentialité et aux règles applicables.</p>
-              <p>Les principaux services tiers utilisés sur le Site peuvent notamment comprendre :</p>
+              <p>Aucun service publicitaire ou analytique tiers n’est actuellement intégré au Site.</p>
               <ul className="list-disc space-y-2 pl-6">
-                <li>Google AdSense, pour la diffusion de publicités ;</li>
                 <li>les services d'hébergement et d'infrastructure nécessaires au fonctionnement du Site ;</li>
-                <li>d'autres services techniques éventuellement intégrés au Site.</li>
+                <li>Google Fonts, utilisé pour charger les polices de caractères.</li>
               </ul>
               <p>La liste des fournisseurs tiers peut évoluer lorsque de nouveaux services sont ajoutés ou que certains services sont supprimés.</p>
             </div>
@@ -143,7 +110,7 @@ export function PrivacyPolicy() {
             <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">8. Partage des informations</h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-[hsl(var(--muted-foreground))]">
               <p>CPGE Score ne vend pas les informations personnelles de ses utilisateurs.</p>
-              <p>Certaines informations techniques peuvent toutefois être traitées ou transmises à des prestataires techniques ou publicitaires lorsque cela est nécessaire au fonctionnement du Site, à la sécurité, à la mesure d’audience ou à la diffusion des annonces.</p>
+              <p>Certaines informations techniques peuvent toutefois être traitées ou transmises à des prestataires techniques lorsque cela est nécessaire au fonctionnement du Site ou à sa sécurité. Aucun prestataire publicitaire ou analytique n’est actuellement intégré.</p>
               <p>Les données peuvent également être communiquées lorsque cela est nécessaire pour respecter une obligation légale, protéger les droits du Site ou prévenir une activité frauduleuse ou abusive.</p>
             </div>
           </section>
@@ -151,8 +118,9 @@ export function PrivacyPolicy() {
           <section>
             <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">9. Conservation des données</h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-[hsl(var(--muted-foreground))]">
-              <p>Nous conservons les informations uniquement pendant la durée nécessaire aux finalités pour lesquelles elles sont traitées, ou pendant la durée imposée par les obligations légales applicables.</p>
-              <p>La durée de conservation peut varier selon la nature des informations et le service concerné.</p>
+              <p>Les données saisies dans le calculateur restent dans la mémoire de la page pendant le calcul. Elles ne sont pas envoyées au serveur et ne sont pas enregistrées dans un cookie, dans le stockage local ou dans une base de données par CPGE Score.</p>
+              <p>Elles disparaissent lorsque l’utilisateur réinitialise le calculateur, recharge la page ou quitte la page du calculateur.</p>
+              <p>Les éventuelles informations techniques traitées par l’hébergeur ou les fournisseurs techniques sont conservées selon leurs propres règles et les obligations légales applicables.</p>
             </div>
           </section>
 
@@ -177,16 +145,16 @@ export function PrivacyPolicy() {
             <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">12. Droits des utilisateurs</h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-[hsl(var(--muted-foreground))]">
               <p>Selon la législation applicable à votre situation, vous pouvez disposer de droits concernant vos données personnelles, notamment des droits d'accès, de rectification, de suppression, de limitation ou d'opposition au traitement.</p>
-              <p>Vous pouvez également disposer de droits spécifiques concernant votre consentement aux cookies et à la personnalisation des annonces.</p>
+              <p>Si des cookies ou des services publicitaires sont ajoutés ultérieurement, vous pourrez également disposer de droits spécifiques concernant votre consentement et la personnalisation des annonces.</p>
               <p>Pour exercer un droit ou poser une question concernant la confidentialité, vous pouvez contacter CPGE Score à l'adresse indiquée sur la page de contact du Site.</p>
             </div>
           </section>
 
           <section>
-            <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">13. Gestion des préférences publicitaires</h2>
+            <h2 className="font-display text-2xl font-extrabold text-[hsl(var(--foreground))]">13. Évolution des préférences publicitaires</h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-[hsl(var(--muted-foreground))]">
-              <p>Les utilisateurs peuvent gérer leurs préférences concernant certaines publicités personnalisées via les <ExternalLink href={googleAdsSettingsUrl}>outils de gestion des annonces proposés par Google</ExternalLink>.</p>
-              <p>Google fournit également des informations permettant aux utilisateurs de comprendre et de gérer l'utilisation des données dans le cadre de ses services publicitaires.</p>
+              <p>CPGE Score n’utilise actuellement aucun service publicitaire tiers. Il n’existe donc pas de préférence publicitaire à gérer dans le Site.</p>
+              <p>Si un service publicitaire est ajouté ultérieurement, la présente politique sera mise à jour afin de présenter les outils et les choix disponibles pour gérer l’utilisation des données et la personnalisation des annonces.</p>
             </div>
           </section>
 
