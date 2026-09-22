@@ -9,6 +9,7 @@ import { Home } from '@/pages/Home';
 import { CalculatorPage } from '@/pages/Calculator';
 import { HowItWorks } from '@/pages/HowItWorks';
 import { PrivacyPolicy } from '@/pages/PrivacyPolicy';
+import { Faq } from '@/pages/Faq';
 import {
   Route,
   Switch,
@@ -26,9 +27,13 @@ function Seo() {
       '/calculateur': 'Calculateur CPGE — CPGE Score Maroc',
       '/comment-ca-marche': 'Comment ça marche ? — CPGE Score Maroc',
       '/politique-de-confidentialite': 'Politique de confidentialité — CPGE Score Maroc',
+      '/faq': 'FAQ — CPGE Score',
     };
     document.title = titles[location] ?? 'CPGE Score Maroc';
-    const description = 'Calculez votre score de sélection CPGE au Maroc avec la formule officielle, étape par étape.';
+    const descriptions: Record<string, string> = {
+      '/faq': "Retrouvez les réponses aux principales questions sur le calcul de votre score et l'utilisation de CPGE Score.",
+    };
+    const description = descriptions[location] ?? 'Calculez votre score de sélection CPGE au Maroc avec la formule officielle, étape par étape.';
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement('meta'); meta.setAttribute('name', 'description'); document.head.appendChild(meta); }
     meta.setAttribute('content', description);
@@ -52,6 +57,7 @@ function Router() {
             <Route path="/calculateur" component={CalculatorPage} />
             <Route path="/comment-ca-marche" component={HowItWorks} />
             <Route path="/politique-de-confidentialite" component={PrivacyPolicy} />
+            <Route path="/faq" component={Faq} />
             <Route component={NotFound} />
           </Switch>
         </AppShell>

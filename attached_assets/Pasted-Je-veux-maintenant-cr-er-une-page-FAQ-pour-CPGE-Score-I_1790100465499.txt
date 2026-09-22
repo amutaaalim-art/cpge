@@ -1,0 +1,114 @@
+Je veux maintenant créer une page FAQ pour CPGE Score.
+
+IMPORTANT :
+Cette demande concerne uniquement la création et l'intégration d'une page FAQ.
+Ne modifie pas la logique du calculateur, les formules, les coefficients, les données des filières ou les validations existantes.
+
+### 1. Nouvelle page
+
+Créer une nouvelle page :
+
+/faq
+
+Nom de la page :
+FAQ — Questions fréquentes
+
+La page doit utiliser le même AppShell, le même header et le même footer que les autres pages du site.
+
+### 2. Contenu
+
+Créer une FAQ claire, élégante et académique avec des questions réellement utiles aux utilisateurs.
+
+Utiliser des sections de type accordéon permettant d'afficher/masquer les réponses.
+
+Questions à inclure :
+
+1. Qu'est-ce que CPGE Score ?
+2. À quoi sert le calculateur ?
+3. Comment mon score est-il calculé ?
+4. Quelles informations dois-je renseigner ?
+5. Que signifient M1, M2, M3 et M4 ?
+6. Quelles filières CPGE sont prises en compte ?
+7. Le résultat obtenu est-il un score officiel ?
+8. Puis-je utiliser le résultat pour une candidature ?
+9. Que faire si je ne connais pas certaines de mes notes ?
+10. Le calculateur conserve-t-il mes informations ?
+11. Puis-je refaire le calcul avec d'autres valeurs ?
+12. Le résultat peut-il être différent d'un classement ou d'une décision officielle ?
+
+Les réponses doivent être simples, précises et professionnelles.
+
+IMPORTANT :
+Ne présente jamais le résultat comme une admission garantie, un classement officiel ou une décision d'une institution.
+
+### 3. Introduction de la page
+
+Ajouter en haut de la page :
+
+Titre :
+"Questions fréquentes"
+
+Sous-titre :
+"Retrouvez les réponses aux principales questions concernant le calcul de votre score et l'utilisation de CPGE Score."
+
+### 4. Navigation
+
+Ajouter "FAQ" dans le menu supérieur existant.
+
+La navigation doit devenir :
+
+Accueil | Calculateur | Comment ça marche | FAQ | Politique de confidentialité
+
+Le bouton "Calculer mon score" doit rester exactement comme actuellement.
+
+Utiliser exactement le même style que les autres éléments du menu.
+
+Sur mobile et tablette, intégrer FAQ au menu responsive existant.
+
+### 5. SEO
+
+Ajouter le titre de page :
+
+"FAQ — CPGE Score"
+
+Ajouter une meta description pertinente pour la page FAQ.
+
+Ajouter également un balisage FAQPage structuré uniquement si le contenu visible de la page correspond exactement au contenu structuré.
+
+### 6. Design
+
+La page doit respecter exactement le design actuel de CPGE Score :
+
+- même typographie ;
+- mêmes espacements ;
+- même palette ;
+- même header ;
+- même footer ;
+- même comportement responsive.
+
+Les questions doivent être présentées sous forme d'accordéons élégants.
+
+Ne crée pas un nouveau système de design.
+
+### 7. Vérifications
+
+Après l'implémentation :
+
+- vérifier /faq en accès direct ;
+- vérifier que la page retourne HTTP 200 ;
+- vérifier le lien FAQ dans le header ;
+- vérifier desktop, tablette et mobile ;
+- vérifier que les accordéons fonctionnent ;
+- vérifier que les autres liens du header fonctionnent ;
+- vérifier que le calculateur fonctionne exactement comme avant ;
+- lancer le typecheck ;
+- lancer les tests ;
+- lancer le build si nécessaire.
+
+Ne fais aucune autre modification.
+
+À la fin, indique-moi :
+- les fichiers créés ;
+- les fichiers modifiés ;
+- les vérifications effectuées ;
+- tout éventuel avertissement.

@@ -10,6 +10,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     { href: '/', label: 'Accueil', icon: BookOpen },
     { href: '/calculateur', label: 'Calculateur', icon: Calculator },
     { href: '/comment-ca-marche', label: 'Comment ça marche', icon: CircleHelp },
+    { href: '/faq', label: 'FAQ', icon: CircleHelp },
     { href: '/politique-de-confidentialite', label: 'Politique de confidentialité', icon: FileText },
   ];
   return (
