@@ -8,6 +8,7 @@ import { AppShell } from '@/components/AppShell';
 import { Home } from '@/pages/Home';
 import { CalculatorPage } from '@/pages/Calculator';
 import { HowItWorks } from '@/pages/HowItWorks';
+import { PrivacyPolicy } from '@/pages/PrivacyPolicy';
 import {
   Route,
   Switch,
@@ -24,6 +25,7 @@ function Seo() {
       '/': 'CPGE Score Maroc — Votre score, en clair',
       '/calculateur': 'Calculateur CPGE — CPGE Score Maroc',
       '/comment-ca-marche': 'Comment ça marche ? — CPGE Score Maroc',
+      '/politique-de-confidentialite': 'Politique de confidentialité — CPGE Score Maroc',
     };
     document.title = titles[location] ?? 'CPGE Score Maroc';
     const description = 'Calculez votre score de sélection CPGE au Maroc avec la formule officielle, étape par étape.';
@@ -49,6 +51,7 @@ function Router() {
             <Route path="/" component={Home} />
             <Route path="/calculateur" component={CalculatorPage} />
             <Route path="/comment-ca-marche" component={HowItWorks} />
+            <Route path="/politique-de-confidentialite" component={PrivacyPolicy} />
             <Route component={NotFound} />
           </Switch>
         </AppShell>

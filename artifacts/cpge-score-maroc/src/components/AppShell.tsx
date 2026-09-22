@@ -49,9 +49,14 @@ export function AppShell({ children }: { children: ReactNode }) {
         )}
       </header>
       <main>{children}</main>
-      <footer className="mx-auto flex max-w-6xl flex-col gap-2 border-t border-[hsl(var(--border)/.8)] px-5 py-8 text-xs text-[hsl(var(--muted-foreground))] sm:flex-row sm:items-center sm:justify-between lg:px-8">
+      <footer className="mx-auto flex max-w-6xl flex-col gap-3 border-t border-[hsl(var(--border)/.8)] px-5 py-8 text-xs text-[hsl(var(--muted-foreground))] sm:flex-row sm:items-center sm:justify-between lg:px-8">
         <span>CPGE Score Maroc · Un outil pour mieux se préparer.</span>
-        <span className="font-mono">Formule officielle · calcul transparent</span>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
+          <Link href="/politique-de-confidentialite" data-testid="link-privacy-policy" className="font-semibold text-[hsl(var(--primary))] underline decoration-[hsl(var(--accent)/.7)] underline-offset-4 hover:decoration-[hsl(var(--primary))]">
+            Politique de confidentialité
+          </Link>
+          <span className="font-mono">Formule officielle · calcul transparent</span>
+        </div>
       </footer>
     </div>
   );

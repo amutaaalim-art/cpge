@@ -1,0 +1,313 @@
+Je veux que tu crées une nouvelle page **« Politique de confidentialité »** pour mon site **CPGE Score**.
+
+### OBJECTIF
+
+Créer une page professionnelle, élégante et cohérente avec le design actuel de CPGE Score, accessible via une nouvelle route :
+
+`/politique-de-confidentialite`
+
+Cette page doit contenir **exactement le contenu de politique de confidentialité fourni à la fin de ce prompt**, avec une mise en forme claire, lisible et professionnelle.
+
+### ⚠️ RÈGLES IMPORTANTES — NE PAS TOUCHER AU CALCULATEUR
+
+**Ne modifie absolument pas :**
+
+* la logique de calcul du score ;
+* les formules ;
+* les champs du calculateur ;
+* les valeurs par défaut ;
+* les validations ;
+* les résultats ;
+* les composants fonctionnels du calculateur ;
+* le responsive actuel du calculateur ;
+* les routes existantes ;
+* les fonctionnalités existantes.
+
+Ne refactorise aucun code existant simplement pour « améliorer » la structure.
+
+Ne modifie aucun fichier qui n'est pas nécessaire à la création de cette nouvelle page et à son intégration dans la navigation.
+
+### AVANT DE MODIFIER QUOI QUE CE SOIT
+
+1. Inspecte d'abord la structure actuelle du projet.
+2. Identifie le système de routing utilisé.
+3. Identifie les composants existants utilisés pour le header, le footer, les boutons, la typographie et les conteneurs.
+4. Identifie les styles existants afin de réutiliser le design actuel.
+5. Vérifie comment les autres pages informatives du site sont structurées.
+
+Ensuite seulement, crée la nouvelle page.
+
+### DESIGN
+
+La nouvelle page doit avoir exactement le même langage visuel que CPGE Score.
+
+Je veux un rendu :
+
+* élégant ;
+* académique ;
+* professionnel ;
+* sobre ;
+* moderne ;
+* très lisible ;
+* cohérent avec le reste du site ;
+* responsive sur mobile, tablette et ordinateur.
+
+Réutilise autant que possible les composants et styles déjà présents dans le projet.
+
+Ne crée pas un design complètement différent.
+
+### STRUCTURE VISUELLE
+
+La page doit comporter :
+
+1. Le header/navigation existant de CPGE Score.
+2. Un titre principal :
+   **Politique de confidentialité**
+3. Une petite indication de date :
+   **Dernière mise à jour : 22 septembre 2026**
+4. Le contenu organisé en sections numérotées de 1 à 16.
+5. Une hiérarchie typographique claire entre :
+
+   * titre de page ;
+   * titres de sections ;
+   * paragraphes ;
+   * listes à puces ;
+   * informations importantes.
+6. Le footer existant du site.
+
+La lecture doit être confortable, notamment sur mobile.
+
+Utilise une largeur de contenu raisonnable afin d'éviter des lignes de texte trop longues.
+
+Les paragraphes doivent avoir suffisamment d'espace entre eux.
+
+Les listes doivent être correctement indentées.
+
+Les éléments importants comme **Google AdSense**, **CPGE Score** et les avertissements doivent être visuellement lisibles sans utiliser un design agressif.
+
+### NAVIGATION
+
+Ajoute un lien vers cette nouvelle page dans le **footer existant**, sous un libellé du type :
+
+**Politique de confidentialité**
+
+Si le footer possède déjà une zone dédiée aux liens légaux, utilise cette zone.
+
+Ne modifie pas inutilement la navigation principale.
+
+Le lien doit pointer vers :
+
+`/politique-de-confidentialite`
+
+### LIENS EXTERNES
+
+Lorsque le texte mentionne les ressources Google, transforme les références concernées en liens cliquables vers les pages officielles de Google appropriées.
+
+N'invente aucune URL.
+
+Si une URL officielle précise n'est pas déjà connue dans le projet, utilise uniquement une URL officielle Google vérifiée.
+
+Les liens externes doivent s'ouvrir de manière appropriée et ne doivent pas casser la navigation de CPGE Score.
+
+### CONTENU
+
+Utilise **exactement le texte suivant**.
+
+Ne réécris pas le contenu.
+Ne résume pas.
+Ne supprime aucune section.
+Ne change pas le sens juridique.
+Ne rajoute pas de nouvelles affirmations.
+
+Tu peux uniquement adapter la mise en forme HTML/React nécessaire à une présentation professionnelle.
+
+---
+
+# Politique de confidentialité
+
+**Dernière mise à jour : 22 septembre 2026**
+
+Bienvenue sur **CPGE Score**.
+
+La présente Politique de confidentialité explique comment CPGE Score (« nous », « notre site » ou « le Site ») traite les informations susceptibles d’être collectées lorsque vous utilisez notre site web et ses services.
+
+En utilisant CPGE Score, vous acceptez les pratiques décrites dans la présente politique, dans les limites prévues par la législation applicable.
+
+## 1. Présentation de CPGE Score
+
+CPGE Score est un outil destiné à aider les étudiants et candidats des classes préparatoires aux grandes écoles (CPGE) à effectuer une estimation de leur score à partir des informations qu’ils saisissent dans le calculateur.
+
+Le résultat fourni par CPGE Score constitue une **estimation informative** et ne constitue pas une décision officielle d’admission, de classement ou d'affectation.
+
+## 2. Informations que nous pouvons collecter
+
+CPGE Score est conçu pour fonctionner sans nécessiter la création d’un compte utilisateur.
+
+Selon la manière dont vous utilisez le Site, les informations susceptibles d’être traitées peuvent notamment comprendre :
+
+* les informations saisies volontairement dans le calculateur ;
+* les données techniques nécessaires au fonctionnement et à la sécurité du Site ;
+* l’adresse IP ou des informations techniques similaires, lorsqu’elles sont traitées par notre hébergeur, nos fournisseurs techniques ou nos services publicitaires ;
+* des informations relatives au navigateur, à l’appareil et au système d’exploitation ;
+* des informations relatives à la navigation sur le Site, notamment les pages consultées et certaines interactions ;
+* des informations stockées dans ou accessibles depuis votre navigateur, notamment au moyen de cookies ou de technologies similaires.
+
+Nous ne demandons pas aux utilisateurs de fournir des informations telles que leur numéro de téléphone, leur adresse postale ou leurs informations bancaires pour utiliser le calculateur.
+
+## 3. Utilisation des informations saisies dans le calculateur
+
+Les informations saisies dans le calculateur sont utilisées afin de :
+
+* effectuer les calculs demandés ;
+* afficher le résultat correspondant aux données saisies ;
+* permettre le fonctionnement et l'amélioration du service ;
+* détecter et prévenir les erreurs, abus ou utilisations malveillantes du Site.
+
+CPGE Score ne demande pas aux utilisateurs de saisir des informations permettant de les identifier directement lorsqu'elles ne sont pas nécessaires au fonctionnement du calculateur.
+
+## 4. Cookies et technologies similaires
+
+CPGE Score peut utiliser des cookies, du stockage local ou des technologies similaires nécessaires au fonctionnement du Site, à la sécurité, à la mesure d’audience ou à la diffusion de publicités.
+
+Des cookies peuvent également être déposés par des fournisseurs tiers lorsque leurs services sont utilisés sur le Site.
+
+Lorsque Google AdSense est utilisé pour diffuser des annonces, **Google et ses partenaires peuvent utiliser des cookies ou d'autres technologies afin de diffuser des annonces, mesurer leur performance et, selon les choix de l'utilisateur et les exigences applicables, personnaliser les annonces**.
+
+Google indique que les fournisseurs tiers, y compris Google, peuvent utiliser des cookies pour diffuser des annonces en fonction des visites antérieures d'un utilisateur sur ce site ou sur d'autres sites.
+
+## 5. Google AdSense
+
+CPGE Score peut utiliser **Google AdSense**, un service de publicité fourni par Google.
+
+Google et ses partenaires peuvent utiliser des cookies, des pixels espions, des adresses IP ou d'autres identifiants et technologies similaires dans le cadre de la diffusion et de la mesure des annonces.
+
+Ces technologies peuvent notamment être utilisées pour :
+
+* diffuser des annonces ;
+* mesurer les impressions et les interactions avec les annonces ;
+* limiter la fréquence d'affichage des annonces ;
+* améliorer la pertinence des annonces ;
+* personnaliser les annonces lorsque cela est autorisé et lorsque l'utilisateur a fourni le consentement requis.
+
+Les utilisateurs peuvent gérer certains paramètres relatifs aux annonces personnalisées dans les paramètres publicitaires de Google.
+
+Pour plus d'informations sur la manière dont Google utilise les données collectées via les sites et applications de ses partenaires, veuillez consulter :
+
+**« Comment Google utilise les informations provenant des sites ou applications qui utilisent ses services »**.
+
+Google exige notamment que les éditeurs informent clairement leurs utilisateurs de l'utilisation de cookies et du fait que des tiers peuvent placer et lire des cookies ou utiliser des technologies similaires dans le cadre de la diffusion d'annonces.
+
+## 6. Publicités personnalisées et consentement
+
+Selon la localisation de l'utilisateur et les exigences légales applicables, CPGE Score peut devoir obtenir le consentement de l'utilisateur avant d'utiliser certaines informations ou certains cookies à des fins de personnalisation des annonces.
+
+Pour les utilisateurs situés dans l'Espace économique européen (EEE), au Royaume-Uni et en Suisse, Google impose notamment des exigences spécifiques concernant le consentement à l'utilisation de cookies ou du stockage local ainsi qu'à l'utilisation de données personnelles pour la personnalisation des annonces lorsque la législation l'exige.
+
+Lorsque cela est nécessaire, CPGE Score utilise un mécanisme de consentement approprié afin de permettre aux utilisateurs d'exprimer leurs choix concernant l'utilisation de leurs données et la personnalisation des annonces.
+
+## 7. Fournisseurs et partenaires tiers
+
+Certains services utilisés par CPGE Score peuvent être fournis par des entreprises tierces.
+
+Ces fournisseurs peuvent traiter certaines informations techniques nécessaires à la fourniture de leurs services, conformément à leurs propres politiques de confidentialité et aux règles applicables.
+
+Les principaux services tiers utilisés sur le Site peuvent notamment comprendre :
+
+* Google AdSense, pour la diffusion de publicités ;
+* les services d'hébergement et d'infrastructure nécessaires au fonctionnement du Site ;
+* d'autres services techniques éventuellement intégrés au Site.
+
+La liste des fournisseurs tiers peut évoluer lorsque de nouveaux services sont ajoutés ou que certains services sont supprimés.
+
+## 8. Partage des informations
+
+CPGE Score ne vend pas les informations personnelles de ses utilisateurs.
+
+Certaines informations techniques peuvent toutefois être traitées ou transmises à des prestataires techniques ou publicitaires lorsque cela est nécessaire au fonctionnement du Site, à la sécurité, à la mesure d’audience ou à la diffusion des annonces.
+
+Les données peuvent également être communiquées lorsque cela est nécessaire pour respecter une obligation légale, protéger les droits du Site ou prévenir une activité frauduleuse ou abusive.
+
+## 9. Conservation des données
+
+Nous conservons les informations uniquement pendant la durée nécessaire aux finalités pour lesquelles elles sont traitées, ou pendant la durée imposée par les obligations légales applicables.
+
+La durée de conservation peut varier selon la nature des informations et le service concerné.
+
+## 10. Sécurité
+
+Nous mettons en œuvre des mesures techniques et organisationnelles raisonnables afin de protéger les informations traitées dans le cadre de CPGE Score contre l'accès non autorisé, la perte, la modification ou la divulgation.
+
+Toutefois, aucun service accessible sur Internet ne peut garantir une sécurité absolue.
+
+## 11. Liens vers des sites tiers
+
+Le Site peut contenir des liens vers des sites ou services exploités par des tiers.
+
+CPGE Score n'est pas responsable des pratiques de confidentialité, du contenu ou de la sécurité de ces sites tiers.
+
+Nous vous recommandons de consulter leur propre politique de confidentialité avant de leur communiquer des informations.
+
+## 12. Droits des utilisateurs
+
+Selon la législation applicable à votre situation, vous pouvez disposer de droits concernant vos données personnelles, notamment des droits d'accès, de rectification, de suppression, de limitation ou d'opposition au traitement.
+
+Vous pouvez également disposer de droits spécifiques concernant votre consentement aux cookies et à la personnalisation des annonces.
+
+Pour exercer un droit ou poser une question concernant la confidentialité, vous pouvez contacter CPGE Score à l'adresse indiquée sur la page de contact du Site.
+
+## 13. Gestion des préférences publicitaires
+
+Les utilisateurs peuvent gérer leurs préférences concernant certaines publicités personnalisées via les outils de gestion des annonces proposés par Google.
+
+Google fournit également des informations permettant aux utilisateurs de comprendre et de gérer l'utilisation des données dans le cadre de ses services publicitaires.
+
+## 14. Protection des mineurs
+
+CPGE Score n'est pas destiné à collecter volontairement des informations personnelles auprès d'enfants.
+
+Nous ne cherchons pas à utiliser les données de personnes que nous savons âgées de moins de 13 ans pour personnaliser des publicités.
+
+## 15. Modifications de cette politique
+
+Nous pouvons mettre à jour cette Politique de confidentialité lorsque nos services, nos pratiques ou les exigences légales applicables évoluent.
+
+La date de dernière mise à jour figurant au début de cette page sera modifiée lorsque des changements importants seront apportés.
+
+## 16. Contact
+
+Pour toute question concernant cette Politique de confidentialité ou le traitement des données sur CPGE Score, vous pouvez nous contacter via les coordonnées disponibles sur le Site.
+
+---
+
+**Dernière mise à jour : 22 septembre 2026**
+
+---
+
+### VÉRIFICATIONS OBLIGATOIRES APRÈS IMPLÉMENTATION
+
+Après avoir créé la page :
+
+1. Vérifie que le projet compile sans erreur.
+2. Vérifie que `/politique-de-confidentialite` fonctionne directement.
+3. Vérifie que le lien du footer fonctionne.
+4. Vérifie la page sur desktop.
+5. Vérifie la page sur tablette.
+6. Vérifie la page sur mobile.
+7. Vérifie que les routes existantes fonctionnent toujours.
+8. Vérifie que le calculateur fonctionne exactement comme avant.
+9. Vérifie qu'aucune formule ou logique de calcul n'a été modifiée.
+10. Vérifie qu'aucun composant existant du calculateur n'a été modifié inutilement.
+
+### RÈGLE FINALE
+
+Cette tâche concerne **uniquement la création et l'intégration de la page Politique de confidentialité**.
+
+**Ne fais aucune autre amélioration, refactorisation, modification de design global ou modification fonctionnelle.**
+
+À la fin, donne-moi :
+
+* les fichiers créés ;
+* les fichiers modifiés ;
+* un résumé très court des changements ;
+* le résultat du build/test ;
+* et confirme explicitement que la logique du calculateur n'a pas été modifiée.
