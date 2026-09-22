@@ -1,0 +1,86 @@
+Je veux maintenant faire un AUDIT DE PRÉPARATION GOOGLE ADSENSE du site CPGE Score.
+
+IMPORTANT :
+Ceci est uniquement un audit.
+NE MODIFIE AUCUN FICHIER.
+NE CRÉE AUCUNE NOUVELLE FONCTIONNALITÉ.
+NE MODIFIE PAS LE CALCULATEUR.
+NE MODIFIE PAS LA FAQ.
+NE MODIFIE PAS LA POLITIQUE DE CONFIDENTIALITÉ.
+NE MODIFIE PAS LE HEADER OU LE FOOTER.
+
+Je veux uniquement que tu inspectes le projet existant et que tu me donnes un rapport factuel.
+
+Vérifie notamment :
+
+1. Google AdSense
+- Est-ce que Google AdSense est déjà intégré quelque part ?
+- Recherche les scripts, IDs ou références AdSense.
+- Indique exactement où ils se trouvent.
+
+2. Google Analytics
+- Vérifie si Google Analytics ou Google Tag Manager est installé.
+- Indique exactement où.
+
+3. Cookies
+- Recherche les cookies utilisés par le site.
+- Recherche localStorage/sessionStorage.
+- Identifie les bibliothèques ou services qui peuvent déposer des cookies.
+
+4. Services tiers
+Liste tous les services externes actuellement utilisés par le frontend.
+
+5. Données utilisateur
+Vérifie quelles données sont réellement saisies par l'utilisateur.
+Indique si ces données sont :
+- envoyées au serveur ;
+- stockées ;
+- conservées après le calcul ;
+- supprimées après utilisation.
+
+6. Consentement
+Vérifie s'il existe actuellement :
+- une bannière de consentement ;
+- un système CMP ;
+- un mécanisme permettant de gérer les préférences de cookies/publicités.
+
+7. Politique de confidentialité
+Compare les pratiques réellement présentes dans le code avec le contenu actuel de :
+/politique-de-confidentialite
+
+Signale uniquement les éventuelles incohérences.
+
+8. Pages légales
+Vérifie que ces pages existent et sont accessibles :
+- /faq
+- /politique-de-confidentialite
+- /legal
+
+9. Navigation
+Vérifie que le header contient bien :
+Accueil
+Calculateur
+Comment ça marche
+FAQ
+Politique de confidentialité
+
+10. Rapport final
+
+Ne fais aucune modification.
+
+Donne-moi un rapport structuré avec :
+
+A. AdSense actuellement présent : Oui/Non
+B. Analytics actuellement présent : Oui/Non
+C. Cookies actuellement utilisés : liste
+D. Stockage local actuellement utilisé : liste
+E. Services tiers : liste
+F. Données utilisateur traitées : liste
+G. CMP/consentement actuellement présent : Oui/Non
+H. Incohérences éventuelles dans la politique de confidentialité
+I. Pages légales disponibles
+J. Points à corriger avant l'intégration d'AdSense
+
+Pour chaque élément, indique le fichier concerné lorsque c'est possible.
+
+Encore une fois : AUDIT UNIQUEMENT. NE MODIFIE RIEN.
