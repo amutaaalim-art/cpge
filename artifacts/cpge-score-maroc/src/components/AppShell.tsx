@@ -1,4 +1,4 @@
-import { BookOpen, Calculator, CircleHelp, FileText, Menu, X } from 'lucide-react';
+import { BookOpen, Calculator, CircleHelp, FileText, Info, Menu, X } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
@@ -11,6 +11,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     { href: '/calculateur', label: 'Calculateur', icon: Calculator },
     { href: '/comment-ca-marche', label: 'Comment ça marche', icon: CircleHelp },
     { href: '/faq', label: 'FAQ', icon: CircleHelp },
+    { href: '/a-propos', label: 'À propos', icon: Info },
     { href: '/politique-de-confidentialite', label: 'Politique de confidentialité', icon: FileText },
   ];
   return (

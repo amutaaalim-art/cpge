@@ -1,0 +1,127 @@
+Je veux maintenant ajouter une page « À propos » au site CPGE Score.
+
+IMPORTANT :
+Cette demande concerne uniquement la création et l'intégration de la page À propos.
+
+Ne modifie pas :
+- la formule du calculateur ;
+- les coefficients ;
+- les données des filières ;
+- les validations ;
+- la logique métier ;
+- la page FAQ ;
+- la page Politique de confidentialité ;
+- le footer existant ;
+- le fonctionnement du calculateur.
+
+### 1. Nouvelle page
+
+Créer :
+
+/a-propos
+
+Titre de la page :
+
+« À propos de CPGE Score »
+
+Sous-titre :
+
+« Un outil conçu pour rendre le calcul de votre score plus clair, transparent et compréhensible. »
+
+### 2. Contenu
+
+Créer une page professionnelle, élégante et académique en français.
+
+La page doit expliquer :
+
+#### Qu'est-ce que CPGE Score ?
+
+CPGE Score est un outil en ligne conçu pour aider les étudiants issus des classes préparatoires aux grandes écoles (CPGE) à calculer et à mieux comprendre leur score à partir des informations qu'ils renseignent.
+
+#### Pourquoi CPGE Score ?
+
+Certaines formules de calcul peuvent sembler complexes ou difficiles à vérifier.
+
+CPGE Score a été conçu pour transformer ces données en un résultat lisible et compréhensible, afin de permettre à l'utilisateur de suivre clairement les différentes composantes de son calcul.
+
+#### Une approche transparente
+
+Le site présente le calcul de manière claire afin que l'utilisateur puisse comprendre comment les différentes données saisies interviennent dans le résultat.
+
+Le résultat fourni par CPGE Score est une estimation calculée à partir des informations renseignées par l'utilisateur.
+
+#### À qui s'adresse CPGE Score ?
+
+Le service s'adresse principalement aux étudiants et candidats concernés par les classes préparatoires aux grandes écoles (CPGE) et souhaitant obtenir une estimation de leur score.
+
+#### Un résultat informatif
+
+CPGE Score ne constitue pas une institution d'admission et ne délivre aucune décision officielle.
+
+Le résultat obtenu ne constitue ni une garantie d'admission, ni un classement officiel, ni une décision d'une école ou d'un établissement.
+
+Les décisions officielles dépendent toujours des institutions et des procédures d'admission concernées.
+
+### 3. Navigation
+
+Ajouter « À propos » au menu supérieur existant.
+
+La navigation doit devenir :
+
+Accueil | Calculateur | Comment ça marche | FAQ | À propos | Politique de confidentialité
+
+Le bouton « Calculer mon score » doit rester exactement comme actuellement.
+
+Utiliser exactement le même style que les autres liens du header.
+
+Sur mobile et tablette, intégrer « À propos » au menu responsive existant.
+
+Le lien doit avoir un état actif lorsque l'utilisateur se trouve sur :
+
+/a-propos
+
+### 4. Design
+
+Utiliser exactement le même AppShell et le même design que les autres pages informatives.
+
+Respecter :
+- la typographie actuelle ;
+- les espacements actuels ;
+- la palette actuelle ;
+- les composants existants ;
+- le responsive existant.
+
+Ne crée pas un nouveau système de design.
+
+### 5. SEO
+
+Ajouter :
+
+Titre :
+« À propos de CPGE Score »
+
+Une meta description en français décrivant clairement CPGE Score et son objectif.
+
+### 6. Vérifications
+
+Après l'implémentation :
+
+1. Vérifier que /a-propos fonctionne directement.
+2. Vérifier HTTP 200.
+3. Vérifier le lien dans le header desktop.
+4. Vérifier le menu mobile/tablette.
+5. Vérifier l'état actif.
+6. Vérifier que les autres liens du header fonctionnent.
+7. Vérifier que le bouton « Calculer mon score » fonctionne.
+8. Vérifier que le calculateur fonctionne exactement comme avant.
+9. Lancer le typecheck.
+10. Lancer les tests.
+11. Lancer le build.
+
+Ne fais aucune autre modification.
+
+À la fin, indique-moi :
+- les fichiers créés ;
+- les fichiers modifiés ;
+- les vérifications effectuées ;
+- les éventuels avertissements.
