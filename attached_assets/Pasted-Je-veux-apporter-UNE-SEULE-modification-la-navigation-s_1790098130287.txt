@@ -1,0 +1,87 @@
+Je veux apporter UNE SEULE modification à la navigation supérieure du site.
+
+La page "Politique de confidentialité" existe déjà et sa route est :
+
+/politique-de-confidentialite
+
+Je veux maintenant que cette page soit accessible directement depuis le MENU SUPÉRIEUR (header), et non uniquement depuis le footer.
+
+### Navigation souhaitée
+
+Le menu supérieur doit devenir :
+
+Accueil
+Calculateur
+Comment ça marche
+Politique de confidentialité
+
+Le bouton situé à droite :
+
+Calculer mon score
+
+doit rester exactement comme il est actuellement.
+
+### IMPORTANT
+
+Ne modifie absolument pas :
+
+- le calculateur ;
+- les formules ;
+- les coefficients ;
+- les validations ;
+- les données des filières ;
+- les résultats ;
+- la logique métier ;
+- le design général du header ;
+- les autres pages ;
+- le responsive existant.
+
+Ajoute uniquement le lien "Politique de confidentialité" dans la navigation supérieure existante.
+
+Le lien doit pointer vers :
+
+/politique-de-confidentialite
+
+Lorsque l'utilisateur clique dessus, il doit être dirigé vers la page PrivacyPolicy.tsx déjà créée.
+
+### Design
+
+Le nouveau lien doit utiliser exactement le même style typographique et visuel que les autres liens du menu supérieur :
+
+"Accueil"
+"Calculateur"
+"Comment ça marche"
+
+Il doit être parfaitement aligné avec eux.
+
+Sur la page Politique de confidentialité, le lien correspondant doit avoir l'état actif de navigation de la même manière que les autres pages.
+
+### Responsive
+
+Sur desktop : afficher le lien dans la navigation supérieure.
+
+Sur tablette/mobile : respecte le système de navigation responsive déjà présent dans le site. Ne crée pas un nouveau menu et ne change pas le comportement existant.
+
+### Footer
+
+Tu peux conserver le lien "Politique de confidentialité" dans le footer s'il existe déjà. Ne le supprime pas inutilement.
+
+### Vérifications
+
+Après la modification :
+
+1. Vérifie que le lien apparaît dans le header.
+2. Clique dessus et vérifie qu'il ouvre `/politique-de-confidentialite`.
+3. Vérifie que la page affiche correctement son contenu.
+4. Vérifie que le lien est actif lorsque l'on se trouve sur cette page.
+5. Vérifie le header sur desktop et mobile.
+6. Vérifie que les autres liens du menu fonctionnent toujours.
+7. Vérifie que le bouton "Calculer mon score" fonctionne toujours.
+8. Vérifie que le calculateur fonctionne exactement comme avant.
+
+Ne fais aucune autre modification.
+
+À la fin, indique-moi uniquement :
+- le ou les fichiers modifiés ;
+- ce qui a été ajouté ;
+- le résultat des vérifications.
