@@ -1,0 +1,161 @@
+Update the CPGE Score Calculator's entire visual color system.
+
+IMPORTANT: Do not redesign the website structure, functionality, calculations, page layout, or existing components. This task is specifically to replace the current color palette and make the CPGE calculator visually distinct from my other website, StatementFlow.
+
+Use this exact color palette:
+
+* Primary background: `#F2F4F3`
+* Primary dark blue: `#042E44`
+* Accent blue: `#63A5CE`
+
+Additional supporting colors may be used only when necessary for readability:
+
+* White: `#FFFFFF`
+* Dark text: `#0D1321`
+
+## Color roles
+
+### #F2F4F3
+
+Use as the main page background and large empty areas.
+
+### #042E44
+
+Use as the main brand color:
+
+* header/navigation
+* logo elements
+* main headings where appropriate
+* primary CTA buttons
+* important labels
+* active states
+* footer
+* major UI elements
+
+### #63A5CE
+
+Use as the accent color:
+
+* secondary buttons
+* hover states
+* selected options
+* progress indicators
+* highlights
+* icons
+* subtle decorative elements
+* important visual feedback
+
+### #FFFFFF
+
+Use for:
+
+* calculator cards
+* input containers
+* result cards when appropriate
+* clean content surfaces
+
+### #0D1321
+
+Use for:
+
+* normal body text
+* labels
+* secondary text when appropriate
+* readable content inside light backgrounds
+
+## Visual direction
+
+The CPGE calculator should feel:
+
+* academic
+* intelligent
+* trustworthy
+* modern
+* clean
+* professional
+* calm
+* student-friendly
+
+Avoid making it look like:
+
+* a banking website
+* a financial dashboard
+* a generic SaaS template
+* StatementFlow
+
+The visual identity should clearly feel like a dedicated Moroccan CPGE educational tool.
+
+## Important design rule
+
+Do not simply replace colors mechanically.
+
+Rebalance the interface so that the new palette feels intentional and cohesive.
+
+Use the dark blue as the visual anchor, the light blue as the accent, and the off-white as the main environment.
+
+Avoid excessive use of the accent blue. It should highlight important interactive elements rather than dominate the entire interface.
+
+## Buttons
+
+Primary button:
+
+* background: `#042E44`
+* text: `#FFFFFF`
+
+Hover:
+
+* use `#63A5CE` appropriately while maintaining readable text
+
+Secondary buttons:
+
+* light background or white surface
+* dark blue text
+* subtle blue border
+
+## Calculator
+
+Keep the calculator extremely readable.
+
+Inputs should remain on clean white surfaces with clear borders.
+
+Selected options can use:
+
+* `#042E44`
+* `#63A5CE`
+
+The result/score area should make the final score visually prominent without turning the entire card blue.
+
+## Responsive design
+
+Preserve the existing responsive behavior for:
+
+* mobile
+* tablet
+* desktop
+
+Do not change the layout merely to apply the new colors.
+
+## Preserve everything else
+
+Do NOT modify:
+
+* CPGE formulas
+* N1 calculation
+* N2 calculation
+* N3 calculation
+* N4 calculation
+* MP / PSI / TSI / ECS / ECT coefficients
+* validation logic
+* page structure
+* routes
+* existing functionality
+
+Only improve and replace the visual color system.
+
+After making the changes, check every page and component to ensure there are no remaining old StatementFlow-style colors or inconsistent colors.
+
+The final website should have a coherent visual identity based primarily on:
+
+`#F2F4F3`
+`#042E44`
+`#63A5CE`
